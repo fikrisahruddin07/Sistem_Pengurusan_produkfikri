@@ -1,0 +1,180 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+/* CONTAINER */
+.container {
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+}
+
+/* TITLE */
+h1 {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+/* FORM */
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* INPUT */
+form input {
+  flex: 1 1 30%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.3s;
+}
+
+form input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 5px rgba(102,126,234,0.5);
+}
+
+/* BUTTON TAMBAH */
+form button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #667eea;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background: #5a67d8;
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* TABLE HEADER */
+th {
+  background: #667eea;
+  color: white;
+  padding: 12px;
+}
+
+/* TABLE DATA */
+td {
+  padding: 12px;
+  text-align: center;
+}
+
+/* ROW STRIPES */
+tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+/* HOVER EFFECT */
+tr:hover {
+  background: #eef1ff;
+}
+
+/* BUTTON DELETE */
+td button {
+  background: #e53e3e;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+td button:hover {
+  background: #c53030;
+}
+
+/* RESPONSIVE TABLE SCROLL */
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* MOBILE DESIGN */
+@media (max-width: 600px) {
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  form input, form button {
+    width: 100%;
+  }
+
+  /* TABLE TO CARD */
+  table, thead, tbody, th, td, tr {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    background: white;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  }
+
+  td {
+    text-align: left;
+    padding: 8px;
+    position: relative;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #667eea;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  td button {
+    width: 100%;
+  }
+}
