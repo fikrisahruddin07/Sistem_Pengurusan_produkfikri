@@ -3,7 +3,7 @@ const table = document.getElementById("productTable");
 
 let products = [];
 
-// FETCH 10 DATA DARI API
+// FETCH API (10 DATA)
 fetch("https://dummyjson.com/products?limit=10")
   .then(res => res.json())
   .then(data => {
@@ -17,23 +17,25 @@ function renderTable() {
 
   products.forEach((p, index) => {
     table.innerHTML += `
-      <tr>
-        <td>${p.title}</td>
-        <td>${p.category}</td>
-        <td>${p.price}</td>
-        <td><button onclick="deleteProduct(${index})">Hapus</button></td>
-      </tr>
+     <tr>
+  <td data-label="Nama">${p.title}</td>
+  <td data-label="Kategori">${p.category}</td>
+  <td data-label="Harga">${p.price}</td>
+  <td>
+    <button class="delete-btn" onclick="deleteProduct(${index})">Hapus</button>
+  </td>
+</tr>
     `;
   });
 }
 
-// DELETE
+// DELETE FUNCTION
 function deleteProduct(index) {
   products.splice(index, 1);
   renderTable();
 }
 
-// ADD PRODUCT
+// ADD PRODUCT (FORM)
 form.addEventListener("submit", function(e) {
   e.preventDefault();
 
@@ -49,6 +51,4 @@ form.addEventListener("submit", function(e) {
 
   renderTable();
   form.reset();
-
-  console.log("Produk ditambah");
 });

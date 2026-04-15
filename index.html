@@ -26,16 +26,70 @@
       <tr>
         <th>Nama</th>
         <th>Kategori</th>
-        <th >Harga (RM)</th>
+        <th>Harga</th>
         <th>Tindakan</th>
       </tr>
     </thead>
+
     <tbody id="productTable"></tbody>
   </table>
 
 </div>
 
-<script src="js/app.js"></script>
+<script>
+let products = [];
+const table = document.getElementById("productTable");
+const form = document.getElementById("productForm");
+
+// FETCH DATA
+fetch("https://dummyjson.com/products?limit=10")
+  .then(res => res.json())
+  .then(data => {
+    products = data.products;
+    renderTable();
+  });
+
+// RENDER TABLE
+function renderTable() {
+  table.innerHTML = "";
+
+  products.forEach((p, index) => {
+    table.innerHTML += `
+      <tr>
+        <td data-label="Nama">${p.title}</td>
+        <td data-label="Kategori">${p.category}</td>
+        <td data-label="Harga"> RM ${p.price}</td>
+        <td><button class="delete-btn">Hapus</button></td>
+      </tr>
+    `;
+  });
+}
+
+// ADD PRODUCT
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const category = document.getElementById("category").value;
+  const price = document.getElementById("price").value;
+
+  products.push({
+    title: name,
+    category: category,
+    price: price
+  });
+
+  renderTable();
+  form.reset();
+});
+
+// DELETE FUNCTION (simple)
+document.addEventListener("click", function(e) {
+  if (e.target.classList.contains("delete-btn")) {
+    e.target.closest("tr").remove();
+  }
+});
+</script>
 
 </body>
 </html>
