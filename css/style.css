@@ -7,11 +7,12 @@
 
 /* BODY */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
   min-height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 /* CONTAINER */
@@ -24,101 +25,108 @@ body {
 /* TITLE */
 h1 {
   text-align: center;
-  color: white;
+  color: #fff;
   margin-bottom: 20px;
-  font-size: 2rem;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
 }
 
-/* FORM */
+/* FORM (GLASS EFFECT) */
 form {
-  background: white;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  border-radius: 15px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
 /* INPUT */
 form input {
   flex: 1 1 30%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
   outline: none;
+  background: rgba(255,255,255,0.9);
   transition: 0.3s;
 }
 
 form input:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 5px rgba(102,126,234,0.5);
+  transform: scale(1.03);
+  box-shadow: 0 0 8px rgba(255,255,255,0.6);
 }
 
 /* BUTTON TAMBAH */
 form button {
-  padding: 10px;
+  padding: 12px;
   border: none;
-  border-radius: 8px;
-  background: #667eea;
+  border-radius: 10px;
+  background: #00c9a7;
   color: white;
   cursor: pointer;
   transition: 0.3s;
 }
 
 form button:hover {
-  background: #5a67d8;
+  background: #00a884;
+  transform: scale(1.05);
 }
 
 /* TABLE */
 table {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 25px;
   border-collapse: collapse;
-  background: white;
-  border-radius: 12px;
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  background: rgba(255,255,255,0.95);
 }
 
-/* TABLE HEADER */
+/* HEADER */
 th {
-  background: #667eea;
+  background: #2a5298;
   color: white;
-  padding: 12px;
+  padding: 14px;
+  font-weight: 600;
 }
 
-/* TABLE DATA */
+/* DATA */
 td {
-  padding: 12px;
+  padding: 14px;
   text-align: center;
 }
 
-/* ROW STRIPES */
+/* STRIPE */
 tr:nth-child(even) {
-  background: #f9f9f9;
+  background: #f4f6ff;
 }
 
-/* HOVER EFFECT */
+/* HOVER */
 tr:hover {
-  background: #eef1ff;
+  background: #dfe6ff;
+  transition: 0.2s;
 }
 
-/* BUTTON DELETE */
+/* DELETE BUTTON */
 td button {
-  background: #e53e3e;
+  background: #ff4d4d;
   color: white;
-  padding: 6px 10px;
-  border-radius: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 td button:hover {
-  background: #c53030;
+  background: #cc0000;
+  transform: scale(1.1);
 }
 
-/* RESPONSIVE TABLE SCROLL */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   table {
     display: block;
@@ -127,11 +135,11 @@ td button:hover {
   }
 }
 
-/* MOBILE DESIGN */
+/* MOBILE CARD STYLE */
 @media (max-width: 600px) {
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
   form {
@@ -142,7 +150,6 @@ td button:hover {
     width: 100%;
   }
 
-  /* TABLE TO CARD */
   table, thead, tbody, th, td, tr {
     display: block;
     width: 100%;
@@ -153,23 +160,21 @@ td button:hover {
   }
 
   tr {
-    background: white;
     margin-bottom: 15px;
-    border-radius: 10px;
+    border-radius: 12px;
     padding: 10px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    background: rgba(255,255,255,0.9);
   }
 
   td {
     text-align: left;
-    padding: 8px;
-    position: relative;
+    padding: 10px;
   }
 
   td::before {
     content: attr(data-label);
     font-weight: bold;
-    color: #667eea;
+    color: #2a5298;
     display: block;
     margin-bottom: 5px;
   }
